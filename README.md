@@ -31,6 +31,7 @@ However, the span is determined by the recursive depth, which is $\Theta(\log_2(
 ## Plagiarism Acknowledgement 
 
 I first started off by reviewing the lecture videos for parallelism. I started with the recursive mergesort implementation from the mergesort assignment. Then I looked for some information online.
+- https://www.w3schools.com/js/js_async.asp
 - https://www.w3schools.com/jsref/jsref_obj_promise.asp
 - https://www.w3schools.com/jsref/jsref_promise_all.asp
 
