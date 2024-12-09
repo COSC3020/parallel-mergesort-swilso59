@@ -1,7 +1,7 @@
 const fs = require('fs');
 const jsc = require('jsverify');
 
-eval(fs.readFileSync(' ./code.js') + '');
+eval(fs.readFileSync('code.js') + '');
 
 const testSort = jsc.forall("array nat", async function (arr) {
     const a1 = JSON.parse(JSON.stringify(arr));
