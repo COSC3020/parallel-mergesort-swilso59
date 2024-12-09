@@ -16,17 +16,15 @@ It may help to consider the DAG of the parallel program.
 ## Answer
 We determine the span of the parallel mergesort implementation by analyzing the msort function. 
 1. Recursive Splitting:
-   - The array is split into 2 halves recursively.
+   - The array is split into halves recursively.
    - The recursion depth is determined by the number of splits needed to reach the base case.
    - This takes $\log_2(n)$ levels of recursion.
-2. Parallel Recursive Calls:
-   - The left and right halves are sorted concurrently. This does not affect the span.
-3. Merge:
-   - At each of the $\log_2(n)$ levels of recursion, merging all subarrays at that level collectively takes $O(n)$ work, but these merges do not affect the 
-     span.
+2. Merge:
+   - At each of the $\log_2(n)$ levels of recursion, merging all sorted subarrays at that level collectively takes $O(n)$ work.
+   - since merges are sequential within each node, the work at each level adds $O(n)$ to the span. 
 
 The total work is similar to the recursive implementation: $O(n \cdot \log_2(n))$.  
-However, the span is determined by the recursive depth, which is $\Theta(\log_2(n))$.
+The span is determined by the work done at each level of the recursion, which is $\Theta(n \cdot \log_2(n))$.
 
 ## Plagiarism Acknowledgement 
 
