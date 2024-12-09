@@ -12,3 +12,35 @@ the function and run automatically when you commit through a GitHub action.
 
 What is the span of the parallel program, in terms of worst-case $\Theta$? Hint:
 It may help to consider the DAG of the parallel program.
+
+## Answer
+We determine the span of the parallel mergesort implementation by analyzing the msort function. 
+1. Recursive Splitting:
+   - The array is split into halves recursively.
+   - The recursion depth is determined by the number of splits needed to reach the base case.
+   - This takes $\log_2(n)$ levels of recursion.
+2. Merge:
+   - At each of the $\log_2(n)$ levels of recursion, merging all sorted subarrays at that level collectively takes $O(n)$ work.
+   - since merges are sequential within each node, the work at each level adds $O(n)$ to the span. 
+
+The total work is similar to the recursive implementation: $O(n \cdot \log_2(n))$.  
+The span is determined by the work done at each level of the recursion, which is $\Theta(n \cdot \log_2(n))$.
+
+## Plagiarism Acknowledgement 
+
+I first started off by reviewing the lecture videos for parallelism. I started with the recursive mergesort implementation from the mergesort assignment. Then I looked for some information online.
+- https://www.w3schools.com/js/js_async.asp
+- https://www.w3schools.com/jsref/jsref_obj_promise.asp
+- https://www.w3schools.com/jsref/jsref_promise_all.asp
+
+For time complexity I had some trouble with the analysis. I ended up looking at a few repositories. I think I was mainly having trouble understadning the differences between work and span.
+- https://github.com/COSC3020/parallel-mergesort-DJReflexive
+- https://github.com/COSC3020/parallel-mergesort-Hrics12-1
+
+I adapted the test from the quicksort assignment test code.
+- https://github.com/COSC3020/quicksort-swilso59-2/blob/main/code.test.js
+
+“I certify that I have listed all sources used to complete this exercise, including the use
+of any Large Language Models. All of the work is my own, except where stated
+otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is
+suspected, charges may be filed against me without prior notice.”
